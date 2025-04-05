@@ -31,6 +31,7 @@ class Pendu :
         }
         # On renvoie notre dictionnqire état du jeu
 
+        print(etat_du_jeu)
         return etat_du_jeu
     
     ##################################################
@@ -98,7 +99,6 @@ class Pendu :
             lettres_proposees.append(entree)
             if entree in mot_a_deviner:
                 Pendu.actualisation_mot_a_afficher(entree)
-                print
                 return "Bonne pioche, le mot contient cette lettre !!!"
             else:
                 vies -= 1
@@ -133,7 +133,7 @@ class Pendu :
             # On vérifie dans mot_a_deviner si la lettre est à position i
             if lettre == mot_a_deviner[i] :
                 # On passe par une liste car les str sont immuables 
-                mot_tmp = list(mot_a_deviner)
+                mot_tmp = list(mot_a_afficher)
                 # On ajoute à lettre à la bonne position donc i
                 mot_tmp[i] = lettre 
                 # On recupe la str avec la methode join

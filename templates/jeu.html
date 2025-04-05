@@ -14,23 +14,43 @@
     <header>
         <h1 class="text-center text-white font-semibold text-3xl bg-yellow-300  py-2"> Jeu du Pendu </h1>
     </header>
-
-    <main class="mt-6">
-        <p class="text-center font-mono text-4xl y-4 py-6"> Devine le mot caché ! Tu n'as que 6 chances ! </p>
-
-        <h1 class="text-center font-mono text-8xl y-4 py-6"> {{etat_du_jeu.mot_a_afficher}} </h1> 
-   
+    <div>
     
-    <form method="POST" action="/deviner">
+    <main class="mt-6 text-center">
+        <p class="text-center font-[cursive] text-4xl y-4 py-6"> Devine le mot caché ! Tu n'as que 6 chances ! </p>
+
         <div class="flex justify-center m-8">
-        <input class="text-4xl" type="text" name="entree" placeholder="Propose une réponse"> 
+            <img src="/static/pendu{{etat_du_jeu.vies}}.png">
         </div>
+
+        <h1 class="text-center font-[cursive] text-8xl y-4 py-6"> {{etat_du_jeu.mot_a_afficher}} </h1> 
+
+
+    {% if etat_du_jeu.victoire %}
+    <h1 class="text-center font-[cursive] text-8xl y-4 py-6" > BRAVO </h1>
+
+
+    {% elif etat_du_jeu.defaite %}
+    <h1 class="text-center font-[cursive] text-8xl y-4 py-6"> DOMMAGE </h1>
+
+
+    {% else %}
+
+    <form method="POST" action="/deviner" autocomplete="off">
+
+        <div class="flex justify-center m-8">
+          <input class="text-4xl" type="text" name="entree" placeholder="Propose une réponse"> 
+        </div>
+
         <div class="flex justify-center m-8">
             <button class="text-4xl bg-yellow-300 p-4 rounded-lg hover:bg-yellow-400 " type="submit"> Valider </button>
         </div>
+    </form>
 
-    <h1 class="text-center font-mono text-8xl y-4 py-6"> {{etat_du_jeu.message}} </h1>
-z
+    {% endif %}
+
+    <p class="text-center font-[cursive] text-8xl y-4 py-6"> {{etat_du_jeu.message}} </p>
+
     </main>
 
 

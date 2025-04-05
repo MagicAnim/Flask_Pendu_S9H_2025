@@ -40,7 +40,7 @@ def deviner():
     # On récupère l'entrée de l'utilisateur
     entree = request.form['entree']
     # On met à jour le jeu avec l'entrée de l'utilisateur 
-    session["etat_du_jeu"] = Pendu.deviner(session["etat_du_jeu"], entree)
+    session["etat_du_jeu"] = Pendu.deviner(session["etat_du_jeu"], entree.upper())
     # On réaffiche le jeu
     return redirect("/jeu")
 
