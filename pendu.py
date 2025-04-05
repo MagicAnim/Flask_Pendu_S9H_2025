@@ -30,8 +30,6 @@ class Pendu :
             "defaite": False,
         }
         # On renvoie notre dictionnqire état du jeu
-
-        print(etat_du_jeu)
         return etat_du_jeu
     
     ##################################################
